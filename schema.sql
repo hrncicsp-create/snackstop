@@ -1,0 +1,12 @@
+create table if not exists products ( id uuid primary key default gen_random_uuid(), slug text unique not null, name text not null, price numeric not null, category text check (category in ('savory','sweet','drinks','boxes')) not null, rating numeric default 4.5, eta_mins int default 15, desc text, img text );
+create table if not exists addons ( id uuid primary key default gen_random_uuid(), product_id uuid references products(id) on delete cascade, name text not null, price numeric not null );
+create table if not exists orders ( id uuid primary key default gen_random_uuid(), user_id uuid references auth.users(id), status text default 'placed', total numeric not null, payload jsonb not null, created_at timestamptz default now() );
+alter table orders enable row level security;
+create policy if not exists "orders_select_own" on orders for select using (auth.uid() = user_id);
+create policy if not exists "orders_insert_own" on orders for insert with check (auth.uid() = user_id);
+create table if not exists addresses ( id uuid primary key default gen_random_uuid(), user_id uuid references auth.users(id) on delete cascade, label text, address text not null, lat double precision, lng double precision, created_at timestamptz default now() );
+alter table addresses enable row level security;
+create policy if not exists "addresses_select_own" on addresses for select using (auth.uid() = user_id);
+create policy if not exists "addresses_upsert_own" on addresses for insert with check (auth.uid() = user_id);
+create policy if not exists "addresses_update_own" on addresses for update using (auth.uid() = user_id) with check (auth.uid() = user_id);
+create policy if not exists "addresses_delete_own" on addresses for delete using (auth.uid() = user_id);

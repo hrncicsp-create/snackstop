@@ -1,0 +1,8 @@
+export type Item = { id: string; name: string; price: number; category: 'savory'|'sweet'|'drinks'|'boxes'; rating: number; etaMins: number; desc: string; img: string; addons?: { id: string; name: string; price: number }[]; }
+export const ITEMS: Item[] = [
+  { id:'pzza1', name:'Pepperoni Slice', price:4.5, category:'savory', rating:4.7, etaMins:18, desc:'Cheesy late-night classic with spicy pepperoni.', img:'https://images.unsplash.com/photo-1548365328-9f547fb09554?q=80&w=1200&auto=format&fit=crop', addons:[{id:'cheese',name:'Extra Cheese',price:0.8},{id:'dip',name:'Garlic Dip',price:0.6}]},
+  { id:'fries1', name:'Crispy Fries', price:3.2, category:'savory', rating:4.6, etaMins:14, desc:'Golden shoestring fries with sea salt.', img:'https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=1200&auto=format&fit=crop' },
+  { id:'ckie1', name:'Warm Choco Cookie', price:2.8, category:'sweet', rating:4.8, etaMins:12, desc:'Fresh-baked, gooey center.', img:'https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1200&auto=format&fit=crop', addons:[{id:'ice',name:'Vanilla Ice Cream',price:1.2},{id:'choc',name:'Chocolate Drizzle',price:0.7}]},
+  { id:'soda1', name:'Cola Can', price:1.9, category:'drinks', rating:4.5, etaMins:10, desc:'Chilled, fizzy, and refreshing.', img:'https://images.unsplash.com/photo-1587385789090-0383d1b13d14?q=80&w=1200&auto=format&fit=crop' },
+  { id:'box1', name:'Movie Night Box', price:11.5, category:'boxes', rating:4.6, etaMins:22, desc:'Popcorn, cookies, gummies, and a cola.', img:'https://images.unsplash.com/photo-1490111718993-d98654ce6cf7?q=80&w=1200&auto=format&fit=crop' }
+]

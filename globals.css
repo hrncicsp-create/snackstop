@@ -1,0 +1,5 @@
+@tailwind base; @tailwind components; @tailwind utilities;
+.card{ @apply bg-white/5 border border-white/10 rounded-2xl; } .btn{ @apply inline-flex items-center justify-center rounded-xl border px-4 py-2; }
+.btn-primary{ @apply border-pink-400/40 bg-pink-500/20 hover:bg-pink-500/30; } .input{ @apply bg-transparent border-0 outline-none placeholder-white/40 w-full; }
+.neon-text{ @apply text-transparent bg-clip-text; background-image: linear-gradient(90deg,#F72585 0%, #9B5DE5 50%, #22D3EE 100%); }
+body{ @apply bg-[#07080D] text-white; }
